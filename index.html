@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18"><title>Friend Quiz</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header><a class="logo" href="./">FRIEND<span>QUIZ</span></a><button id="language" class="outline">English</button></header>
+<main>
+<section class="intro"><small data-ar="اختبار الأصحاب" data-en="THE FRIENDSHIP TEST">اختبار الأصحاب</small>
+<h1 data-ar="مين يعرفك <em>أكتر؟</em>" data-en="Who knows you <em>best?</em>">مين يعرفك <em>أكتر؟</em></h1>
+<p data-ar="اعمل اختبار عن نفسك وشارك الرابط مع أصحابك." data-en="Create a quiz about yourself and share it with friends.">اعمل اختبار عن نفسك وشارك الرابط مع أصحابك.</p></section>
+<div id="setup" class="card warning hidden"><h2>إعداد قاعدة البيانات</h2><p>الموقع يحتاج ربط Supabase وتشغيل ملف supabase/schema.sql لتفعيل حفظ الاختبارات والنتائج.</p></div>
+<section id="mainCard" class="card">
+<nav><button class="tab selected" data-view="take" data-ar="حل اختبار" data-en="Take quiz">حل اختبار</button><button class="tab" data-view="owner" data-ar="لوحة المالك" data-en="Owner dashboard">لوحة المالك</button></nav>
+<div id="take"><label data-ar="رابط الاختبار أو الكود" data-en="Quiz link or ID">رابط الاختبار أو الكود</label><input id="quizLink" placeholder="الصق الرابط هنا"><button id="loadQuiz" class="primary" data-ar="ابدأ الاختبار" data-en="Start quiz">ابدأ الاختبار</button></div>
+<div id="owner" class="hidden"><div id="login"><h2 data-ar="دخول المالك" data-en="Owner sign in">دخول المالك</h2><input id="email" type="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><div class="buttons"><button id="signin" class="primary" data-ar="دخول" data-en="Sign in">دخول</button><button id="signup" class="outline" data-ar="إنشاء حساب" data-en="Sign up">إنشاء حساب</button></div></div>
+<div id="panel" class="hidden"><div class="between"><h2 data-ar="اختباراتي" data-en="My quizzes">اختباراتي</h2><button id="logout" class="outline" data-ar="خروج" data-en="Sign out">خروج</button></div><input id="title" placeholder="اسم الاختبار"><button id="create" class="primary" data-ar="إنشاء اختبار الأسئلة الـ19" data-en="Create my 19-question quiz">إنشاء اختبار الأسئلة الـ19</button><div id="quizzes"></div></div></div>
+</section><section id="quiz" class="card hidden"></section><section id="results" class="card hidden"></section><div id="notice" class="notice hidden"></div>
+</main><footer>FRIENDQUIZ · <span data-ar="اختبار الأصحاب" data-en="Friends quiz">اختبار الأصحاب</span></footer>
+<script src="app.js"></script></body></html>
